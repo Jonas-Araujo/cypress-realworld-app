@@ -6,7 +6,8 @@ Fork do projeto [cypress-io/cypress-realworld-app](https://github.com/cypress-io
 
 ## 📋 Pré-requisitos
 
-- [Node.js](https://nodejs.org/en/) — versão definida no arquivo [.node-version](./.node-version)
+- [Node.js](https://nodejs.org/en/) versão 22
+- [nvm](https://github.com/nvm-sh/nvm) — gerenciador de versões do Node
 - [Yarn Classic](https://classic.yarnpkg.com/) (versão 1)
 
 ---
@@ -22,13 +23,9 @@ cd cypress-realworld-app
 
 ### 2. Configure a versão do Node
 
-O projeto usa o [nvm](https://github.com/nvm-sh/nvm) para gerenciar a versão do Node. Execute:
-
 ```bash
-nvm use
+nvm use 22
 ```
-
-> Isso vai ler o arquivo `.node-version` e usar a versão correta automaticamente.
 
 ### 3. Instale o Yarn globalmente
 
@@ -52,13 +49,27 @@ yarn dev
 > - Frontend: http://localhost:3000
 > - Backend: http://localhost:3001
 
-### 6. Abra o Cypress
+> ⚠️ Aguarde aparecer `Backend server running at http://localhost:3001` antes de abrir o Cypress.
 
-Em outro terminal, execute:
+### 6. Abra o Cypress em outro terminal
 
 ```bash
 yarn cypress:open
 ```
+
+---
+
+## 🔄 Resetar o banco de dados
+
+O banco é resetado automaticamente toda vez que o `yarn dev` é iniciado.
+
+Para resetar manualmente sem reiniciar a aplicação:
+
+```bash
+yarn db:seed
+```
+
+> Isso é necessário para rodar os testes a partir de um estado limpo.
 
 ---
 
