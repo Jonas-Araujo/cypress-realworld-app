@@ -9,7 +9,7 @@ beforeEach(() => {
   cy.intercept(
     { url: "http://localhost:3001/**", middleware: true },
     (req) => delete req.headers["if-none-match"]
-  );
+  ).as("removeIfNoneMatch");
 
   // Throttle API responses for mobile testing to simulate real world condition
   if (isMobile()) {
@@ -18,6 +18,6 @@ beforeEach(() => {
         // Throttle the response to 1 Mbps to simulate a mobile 3G connection
         res.setThrottle(1000);
       });
-    });
+    }).as("throttleMobile");
   }
 });

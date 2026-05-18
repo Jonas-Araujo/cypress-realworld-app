@@ -1,0 +1,28 @@
+{
+    "userSuccess": {
+        "username": "Heath93",
+        "password": "s3cret"
+    },
+    "userFail": {
+        "username": "test",
+        "password": "s3cret"
+    },
+    "newUser": {
+        "firstName": "Tobias",
+        "lastName": "Boon",
+        "username": "mkfnhm",
+        "password": "s3cret",
+        "confirmPassword": "s3cret"
+    },
+    "successTransaction": {
+        "value": "150",
+        "note": "thanks"
+    },
+    "insufficientAmount": {
+        "value": "632000",
+        "note": "thanks"
+    },
+    "contactUser": {
+        "username": "Kristian"
+    }
+}
