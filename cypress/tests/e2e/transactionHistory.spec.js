@@ -2,10 +2,12 @@
 // Casos de teste para a feature de visualização do histórico de transações
 
 import userData from '../../fixtures/userData.json'
+import Chance from 'chance'
 import LoginPage from '../../pages/loginPage'
 import SignUpPage from '../../pages/signUpPage';
 import TransactionHistoryPage from '../../pages/transactionHistoryPage'
 
+const chance = new Chance()
 const loginPage = new LoginPage()
 const signUpPage = new SignUpPage()
 const transactionHistoryPage = new TransactionHistoryPage()
@@ -23,7 +25,7 @@ describe('Real World App | Transaction History', () => {
     it('Transaction History - View Without Transactions', () => {
         loginPage.accessLoginPage()
         signUpPage.signUpUser(userData.newUser.firstName, userData.newUser.lastName, userData.newUser.username, userData.newUser.password, userData.newUser.confirmPassword)
-        loginPage.loginNewUser(userData.newUser.username, userData.newUser.password)
+        loginPage.loginNewUser(userData.newUser.username,userData.newUser.password, chance.company(), chance.natural({ min: 100000000, max: 999999999 }), chance.natural({ min: 100000000, max: 999999999999 }))
         transactionHistoryPage.newUserHistory()
     })
 

@@ -46,7 +46,9 @@ class LoginPage {
         cy.get(this.selectorsList().usernameField).type(username)
         cy.get(this.selectorsList().passwordField).type(password)
         cy.get(this.selectorsList().signinSubmitButton).click({ force: true })
-
+        
+        // Aguarda a URL mudar para a home antes de verificar o modal
+        cy.url().should('not.include', '/signin')
         // Verifica se o modal de onboarding aparece — apenas para novos usuários
         cy.get('body').then(($body) => {
             if ($body.find(this.selectorsList().onboardingDialog).length > 0) {
